@@ -1,0 +1,12 @@
+# robots.txt for ManhuaScan
+# Allow all crawlers but point to sitemap
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update if sitemap path differs)
+Sitemap: https://manueldev.me/sitemap.xml
+
+# Disallow any private or admin paths (uncomment and adjust if needed)
+# Disallow: /admin/
+# Disallow: /api/

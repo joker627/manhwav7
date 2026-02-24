@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es" class="is-loading">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título y descripción -->
+  <title>ManhuaScan — Catálogo de Manhua y Manhwa en Español</title>
+  <meta name="description"
+    content="ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados, traducciones y catálogo organizado para lectura online.">
+  <meta name="keywords" content="manhua, manhwa, scans, capítulos, lectura online, manga, webtoon, traducciones">
+  <meta name="author" content="ManhuaScan Team">
+  <meta name="robots" content="index, follow">
+
+  <!-- URL canónica -->
+  <link rel="canonical" href="https://manueldev.me/">
+
+  <!-- Metadatos de aplicación y tema -->
+  <meta name="theme-color" content="#0b0f12">
+  <meta name="color-scheme" content="light only">
+  <meta name="application-name" content="ManhuaScan">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ManhuaScan">
+  <meta property="og:title" content="ManhuaScan — Manhua y Manhwa en Español">
+  <meta property="og:description"
+    content="Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.">
+  <meta property="og:url" content="https://manueldev.me/">
+  <meta property="og:image" content="https://manueldev.me/static/img/brands/logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Logo de ManhuaScan">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ManhuaScan — Manhua y Manhwa en Español">
+  <meta name="twitter:description"
+    content="ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.">
+  <meta name="twitter:image" content="https://manueldev.me/static/img/brands/logo.png">
+  <meta name="twitter:image:alt" content="Logo de ManhuaScan">
+  <meta name="twitter:site" content="@manhuascan"> <!-- Reemplazar con tu cuenta real -->
+
+  <!-- Favicon -->
+  <link rel="icon" href="static/img/brands/logo.png" type="image/png">
+
+  <!-- Preconexiones y recursos externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Fuentes (ejemplo con Inter, descomentar si se usa) -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
+
+  <!-- Iconos Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Estilos locales -->
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/components/navbar.css">
+  <link rel="stylesheet" href="static/css/components/hero.css">
+  <link rel="stylesheet" href="static/css/components/lista-capitulos.css">
+  <link rel="stylesheet" href="static/css/components/footer.css">
+
+  <!-- Precarga del módulo principal JS -->
+  <link rel="modulepreload" href="/static/js/main.js" crossorigin="anonymous">
+  <!-- Enlace al sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://manueldev.me/sitemap.xml">
+
+  <!-- Datos estructurados JSON-LD (unificados) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://manueldev.me/#organization",
+        "name": "ManhuaScan",
+        "url": "https://manueldev.me/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://manueldev.me/static/img/brands/logo.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://manueldev.me/#website",
+        "url": "https://manueldev.me/",
+        "name": "ManhuaScan",
+        "description": "ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.",
+        "publisher": { "@id": "https://manueldev.me/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://manueldev.me/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://manueldev.me/#collectionpage",
+        "url": "https://manueldev.me/",
+        "name": "Catálogo de Manhua y Manhwa - ManhuaScan",
+        "isPartOf": { "@id": "https://manueldev.me/#website" },
+        "description": "Explora nuestro catálogo completo de manhua y manhwa disponibles para lectura online en español.",
+        "about": {
+          "@type": "Thing",
+          "name": "Manhua y Manhwa"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "numberOfItems": 6,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "ComicSeries",
+                "name": "Solo Leveling",
+                "url": "https://manueldev.me/series/solo-leveling"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "ComicSeries",
+                "name": "Tower of God",
+                "url": "https://manueldev.me/series/tower-of-god"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "ComicSeries",
+                "name": "The God of High School",
+                "url": "https://manueldev.me/series/the-god-of-high-school"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "ComicSeries",
+                "name": "Noblesse",
+                "url": "https://manueldev.me/series/noblesse"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "ComicSeries",
+                "name": "Hardcore Leveling Warrior",
+                "url": "https://manueldev.me/series/hardcore-leveling-warrior"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "ComicSeries",
+                "name": "The Breaker",
+                "url": "https://manueldev.me/series/the-breaker"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6PS8C5Z57"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C6PS8C5Z57');
+</script>
+</head>
+
+<body>
+  <!-- Contenedores para los componentes (IDs intactos) con skeleton de carga -->
+  <div id="main-navbar">
+    <div class="skeleton-navbar" aria-label="Cargando navegación"></div>
+  </div>
+  <div id="main-hero">
+    <div class="skeleton-hero" aria-label="Cargando contenido destacado"></div>
+  </div>
+  <main id="main-content" class="container">
+    <div class="skeleton-content" aria-label="Cargando catálogo"></div>
+  </main>
+  <div id="main-footer">
+    <div class="skeleton-footer" aria-label="Cargando pie de página"></div>
+  </div>
+
+  <!-- Script principal (módulo) -->
+  <script type="module" src="/static/js/main.js" crossorigin="anonymous"></script>
+
+  <!-- Enlace de accesibilidad: saltar al contenido -->
+  <a href="#main-content" class="skip-to-content"></a>
+</body>
+
+</html>

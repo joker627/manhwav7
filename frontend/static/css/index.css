@@ -1,0 +1,51 @@
+/* Global reset & base styles */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+/* Critical skeleton styles (moved from inline) to reduce flashes */
+html.is-loading, html.is-loading body{background:#050609;color:#e6f8ef}
+.skeleton-navbar{height:64px;background:linear-gradient(90deg,#071018,#0b1220)}
+.skeleton-hero{height:260px;background:linear-gradient(180deg,#061018,#081222)}
+.skeleton-content{min-height:320px;background:linear-gradient(180deg,#061018,#081222)}
+.skeleton-footer{height:120px;background:linear-gradient(90deg,#050506,#071018)}
+.skip-to-content{position:absolute;left:-9999px}
+.is-loading #main-content{visibility:visible}
+body{
+	margin:0;
+	background:linear-gradient(180deg,#050609 0%,#071018 100%);
+	color:#e6f8ef;
+	font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans",sans-serif;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	line-height:1.45;
+}
+
+/* Layout helpers */
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+main{padding:1.25rem 0}
+
+/* Global link/button styles */
+a{color:inherit}
+a:focus-visible{outline:2px solid rgba(16,185,129,0.25);outline-offset:2px}
+button,a.button{cursor:pointer}
+
+/* Images */
+img{max-width:100%;height:auto;display:block}
+
+/* Simple responsive utilities used by components */
+.hidden{display:none}
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Footer small layout helper */
+.footer-bottom-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0 1rem;flex-wrap:wrap}
+
+/* Ensure component mounts have some spacing when injected */
+#main-navbar{position:sticky;top:0;z-index:40}
+#main-hero{margin-top:0}
+#main-content{padding:1.25rem}
+#main-footer{margin-top:2rem}
+
+/* Accessibility: increased hit-targets for links in nav/actions */
+#navbar nav a, #navbar .actions a{padding:0.5rem 0.75rem}
+
+/* Small screens tweaks shared across components */
+@media (max-width:768px){.container{padding:0 .75rem}}
