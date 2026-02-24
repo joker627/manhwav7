@@ -1,0 +1,49 @@
+/* Component-level footer overrides to match dark anime theme */
+#footer-principal{
+	background:linear-gradient(180deg,#060606,#0b0f12);
+	color:#e6f8ef;
+	padding:2.25rem 1rem;
+}
+
+.footer-container{
+	max-width:1200px;
+	margin:0 auto;
+	display:grid;
+	grid-template-columns:repeat(4,1fr);
+	gap:1.5rem;
+	padding:0 1rem;
+}
+
+.footer-col h4{color:#e6fff6;margin:0 0 .6rem}
+.footer-logo{width:56px;border-radius:8px;margin-bottom:.5rem}
+.footer-desc{color:#cfeee8;font-size:.95rem;line-height:1.45;margin:0}
+
+.footer-links,.footer-contact,.legal-links{list-style:none;padding:0;margin:0}
+.footer-links li,.footer-contact li,.legal-links li{margin-bottom:.45rem}
+.footer-links a,.legal-links a{color:#cfeee8;text-decoration:none;transition:color .12s ease}
+.footer-links a:hover,.legal-links a:hover{color:#0fbf8e;text-decoration:underline}
+
+.footer-contact li{color:#cfeee8;display:flex;align-items:center;gap:.5rem}
+.email-line{word-break:break-word}
+
+.social-links a{
+	display:inline-flex;align-items:center;justify-content:center;
+	width:36px;height:36px;margin-right:.5rem;border-radius:8px;
+	background:rgba(255,255,255,0.03);color:#cfeee8;text-decoration:none;transition:all .12s ease
+}
+.social-links a:hover{background:linear-gradient(90deg,#0fbf8e,#059669);color:#041014;transform:translateY(-2px)}
+
+.footer-bottom{background:rgba(0,0,0,0.35);padding:0.8rem 0;margin-top:1rem}
+.footer-bottom p{margin:0;color:#9edfc9;font-size:.9rem}
+.legal-links{display:flex;gap:1rem;align-items:center;margin:0;padding:0}
+
+/* Small tweaks for the contact form inside footer (if used) */
+.contact-form input,.contact-form textarea{background:rgba(255,255,255,0.02);border:1px solid rgba(16,185,129,0.06);color:#e6f8ef;padding:.5rem;border-radius:6px}
+.btn-enviar{background:linear-gradient(90deg,#0fbf8e,#059669);color:#041014;border:none;padding:.55rem .9rem;border-radius:8px}
+
+@media(max-width:992px){.footer-container{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:576px){
+	.footer-container{grid-template-columns:1fr}
+	.social-links a{width:44px;height:44px;margin-bottom:.5rem}
+	.footer-bottom-container{flex-direction:column;align-items:flex-start}
+}
