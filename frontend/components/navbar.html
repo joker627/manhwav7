@@ -1,15 +1,46 @@
-
 <header id="navbar">
   <div class="brand">
-    <img src="static/img/brands/logo.png" alt="logo">
-    <div class="title">SIG</div>
+    <img src="/static/img/brands/logo.png" alt="ManhwaV7 logo">
+    <span class="title">ManhwaV7</span>
   </div>
-  <nav>
-    <a href="/index.html">Inicio</a>
-    <a href="/pages/series.html">Series</a>
-    <a href="/pages/scans.html">Scans</a>
+
+  <!-- Navegación principal (visible en desktop) -->
+  <nav class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/catalogo">Catálogo</a>
+    <a href="/ranking">Ranking</a>
+    <a href="/lista">Mi lista</a>
   </nav>
+
+  <!-- Acciones: buscador y avatar (visibles en desktop) -->
   <div class="actions">
-    <a href="/pages/usuarios.html">Usuarios</a>
+    <div class="search-box">
+      <span class="material-icons">search</span>
+      <input type="text" placeholder="Buscar manhwas...">
+    </div>
+    <div class="avatar">
+      <img src="/static/img/user/user.svg" alt="User avatar">
+    </div>
   </div>
+
+  <!-- Botón hamburguesa para móvil -->
+  <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+    <span class="material-icons">menu</span>
+  </button>
 </header>
+
+<!-- Menú móvil (oculto inicialmente) -->
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="/">Inicio</a>
+  <a href="/catalogo">Catálogo</a>
+  <a href="/ranking">Ranking</a>
+  <a href="/lista">Mi lista</a>
+  <div class="mobile-search">
+    <span class="material-icons">search</span>
+    <input type="text" placeholder="Buscar..." aria-label="Buscar">
+  </div>
+  <div class="mobile-avatar" tabindex="0" aria-label="Perfil">
+    <img src="/static/img/user/user.svg" alt="Avatar">
+    <span>Mi perfil</span>
+  </div>
+</nav>

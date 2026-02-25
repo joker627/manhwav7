@@ -1,4 +1,4 @@
-// Función para cargar un componente en un contenedor
+
 async function loadcomponent(Id, archivo) {
   const contenedor = document.getElementById(Id);
   const respuesta = await fetch(`components/${archivo}`);

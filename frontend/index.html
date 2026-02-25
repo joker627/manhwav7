@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" class="is-loading">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Título y descripción -->
+  <!-- Metadatos básicos y SEO -->
   <title>ManhuaScan — Catálogo de Manhua y Manhwa en Español</title>
-  <meta name="description"
-    content="ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados, traducciones y catálogo organizado para lectura online.">
+  <meta name="description" content="ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados, traducciones y catálogo organizado para lectura online.">
   <meta name="keywords" content="manhua, manhwa, scans, capítulos, lectura online, manga, webtoon, traducciones">
   <meta name="author" content="ManhuaScan Team">
   <meta name="robots" content="index, follow">
-
-  <!-- URL canónica -->
   <link rel="canonical" href="https://manueldev.me/">
 
   <!-- Metadatos de aplicación y tema -->
@@ -21,13 +17,12 @@
   <meta name="color-scheme" content="light only">
   <meta name="application-name" content="ManhuaScan">
 
-  <!-- Open Graph / Facebook / WhatsApp -->
+  <!-- Open Graph / Facebook -->
   <meta property="og:locale" content="es_ES">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ManhuaScan">
   <meta property="og:title" content="ManhuaScan — Manhua y Manhwa en Español">
-  <meta property="og:description"
-    content="Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.">
+  <meta property="og:description" content="Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.">
   <meta property="og:url" content="https://manueldev.me/">
   <meta property="og:image" content="https://manueldev.me/static/img/brands/logo.png">
   <meta property="og:image:width" content="512">
@@ -38,11 +33,10 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ManhuaScan — Manhua y Manhwa en Español">
-  <meta name="twitter:description"
-    content="ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.">
+  <meta name="twitter:description" content="ManhuaScan — Lee manhua y manhwa en español: capítulos actualizados y catálogo organizado para lectura online.">
   <meta name="twitter:image" content="https://manueldev.me/static/img/brands/logo.png">
   <meta name="twitter:image:alt" content="Logo de ManhuaScan">
-  <meta name="twitter:site" content="@manhuascan"> <!-- Reemplazar con tu cuenta real -->
+  <meta name="twitter:site" content="@manhuascan">
 
   <!-- Favicon -->
   <link rel="icon" href="static/img/brands/logo.png" type="image/png">
@@ -52,10 +46,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-  <!-- Fuentes (ejemplo con Inter, descomentar si se usa) -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
-
-  <!-- Iconos Font Awesome -->
+  <!-- Fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- Estilos locales -->
@@ -67,10 +60,9 @@
 
   <!-- Precarga del módulo principal JS -->
   <link rel="modulepreload" href="/static/js/main.js" crossorigin="anonymous">
-  <!-- Enlace al sitemap -->
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://manueldev.me/sitemap.xml">
 
-  <!-- Datos estructurados JSON-LD (unificados) -->
+  <!-- Datos estructurados JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -178,28 +170,84 @@
     ]
   }
   </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6PS8C5Z57"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-C6PS8C5Z57');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6PS8C5Z57"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-C6PS8C5Z57');
+  </script>
 </head>
 
 <body>
-  <!-- Contenedores para los componentes (IDs intactos) con skeleton de carga -->
+  <!-- Contenedor del navbar con skeleton -->
   <div id="main-navbar">
-    <div class="skeleton-navbar" aria-label="Cargando navegación"></div>
+    <div class="skeleton-navbar" aria-label="Cargando navegación">
+      <div class="skeleton-avatar"></div>
+      <div class="skeleton-line logo-line"></div>
+      <div class="skeleton-line nav-item-line"></div>
+      <div class="skeleton-line nav-item-line"></div>
+      <div class="skeleton-line nav-item-line"></div>
+      <div class="skeleton-line nav-item-line"></div>
+      <div class="skeleton-spacer"></div>
+      <div class="skeleton-line search-line"></div>
+      <div class="skeleton-avatar"></div>
+    </div>
   </div>
+
+  <!-- Contenedor del héroe con skeleton -->
   <div id="main-hero">
-    <div class="skeleton-hero" aria-label="Cargando contenido destacado"></div>
+    <div class="skeleton-hero" aria-label="Cargando contenido destacado">
+      <div class="skeleton-line hero-title-line"></div>
+      <div class="skeleton-line hero-subtitle-line"></div>
+      <div class="skeleton-line hero-button-line"></div>
+    </div>
   </div>
+
+  <!-- Contenido principal con skeleton de catálogo -->
   <main id="main-content" class="container">
-    <div class="skeleton-content" aria-label="Cargando catálogo"></div>
+    <div class="skeleton-content" aria-label="Cargando catálogo">
+      <div class="skeleton-content-inner">
+        <!-- Tarjeta skeleton 1 -->
+        <div class="skeleton-card">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-card-footer">
+            <div class="skeleton-avatar-sm"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+          <div class="skeleton-line card-bottom-line"></div>
+        </div>
+        <!-- Tarjeta skeleton 2 -->
+        <div class="skeleton-card">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-card-footer">
+            <div class="skeleton-avatar-sm"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+          <div class="skeleton-line card-bottom-line"></div>
+        </div>
+        <!-- Tarjeta skeleton 3 -->
+        <div class="skeleton-card">
+          <div class="skeleton-thumb"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-card-footer">
+            <div class="skeleton-avatar-sm"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+          <div class="skeleton-line card-bottom-line"></div>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <!-- Contenedor del footer con skeleton -->
   <div id="main-footer">
     <div class="skeleton-footer" aria-label="Cargando pie de página"></div>
   </div>
@@ -207,8 +255,5 @@
   <!-- Script principal (módulo) -->
   <script type="module" src="/static/js/main.js" crossorigin="anonymous"></script>
 
-  <!-- Enlace de accesibilidad: saltar al contenido -->
-  <a href="#main-content" class="skip-to-content"></a>
 </body>
-
 </html>
