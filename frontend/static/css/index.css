@@ -1,5 +1,6 @@
 /* ===== VARIABLES GLOBALES ===== */
 :root {
+	--navbar-height: 64px;
 	--bg-dark: #0a0c10;
 	--bg-surface: #14181f;
 	--primary: #7c3aed;
@@ -9,6 +10,7 @@
 	--border: #2d3748;
 	--shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
 	--transition: all 0.2s ease;
+	--page-padding: 1.25rem;
 }
 
 /* ===== RESET Y BASE ===== */
@@ -22,12 +24,15 @@
 
 html,
 body {
-	height: 100%;
+	width: 100%;
+	min-height: 100%;
 	overflow-x: hidden;
+	overflow-y: auto;
 	font-family: 'Poppins', sans-serif;
 }
 
 body {
+	padding-top: var(--navbar-height);
 	background: linear-gradient(180deg, #050609 0%, #071018 100%);
 	color: #e6f8ef;
 	-webkit-font-smoothing: antialiased;
@@ -39,7 +44,7 @@ body {
 .container {
 	max-width: 1100px;
 	margin: 0 auto;
-	padding: 0 1rem;
+	padding: 0 var(--page-padding);
 }
 
 /* ===== NAVBAR REAL (CUANDO CARGA EL CONTENIDO) ===== */
@@ -61,6 +66,24 @@ body {
 
 #main-navbar {
 	overflow: visible !important;
+}
+
+/* ===== LAYOUT CONTENEDORES ===== */
+/* Hero full-width: el componente hero maneja su propio padding */
+#main-hero {
+	width: 100%;
+	padding: 0;
+}
+
+/* main-content es full-width: los hijos manejan su propio láyout */
+#main-content {
+	width: 100%;
+	padding-bottom: 0;
+}
+
+#main-footer {
+	width: 100%;
+	padding: 0;
 }
 
 .brand {
@@ -201,7 +224,7 @@ body {
 .mobile-menu {
 	display: none;
 	position: fixed;
-	top: 72px;
+	top: var(--navbar-height, 64px);
 	left: 0;
 	width: 100%;
 	background: var(--bg-surface);
@@ -213,6 +236,7 @@ body {
 	transform: translateY(-100%);
 	transition: transform 0.3s ease;
 	box-shadow: var(--shadow);
+	overflow: hidden;
 }
 
 .mobile-menu.open {
@@ -307,19 +331,20 @@ body {
 
 /* ===== SKELETON HERO ===== */
 .skeleton-hero {
-	height: 260px;
+	aspect-ratio: 21 / 9;
 	width: 100%;
 	background: linear-gradient(90deg, #061018 25%, #081222 50%, #061018 75%);
 	background-size: 200% 100%;
 	animation: skeleton-shimmer 1.2s infinite linear;
-	border-radius: 0 0 32px 32px;
-	margin-bottom: 1.5rem;
+	border-radius: 16px;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 1.2rem;
-	padding: 3.5rem 1.25rem;
+	align-items: flex-start;
+	justify-content: flex-end;
+	gap: 1rem;
+	padding: 2.5rem;
 }
 
 .skeleton-line.hero-title-line {
@@ -496,5 +521,15 @@ body {
 		min-width: 0;
 		max-width: 400px;
 		padding: 0.8rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.skeleton-hero {
+		aspect-ratio: 4 / 3;
+	}
+
+	.skeleton-hero .skeleton-line.hero-title-line {
+		width: 80%;
 	}
 }

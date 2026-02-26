@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 		await loadAllComponents();
 		createCarousel('#hero', {
 			sliderSelector: '.hero-slider',
-			slideSelector: '.img-portada',
-			autoplayInterval: 3000,   // Cambia cada 3 segundos
+			slideSelector: '.hero-slide',
+			autoplayInterval: 5000,
 			pauseOnHover: true
 		});
 

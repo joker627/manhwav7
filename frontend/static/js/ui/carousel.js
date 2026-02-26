@@ -1,11 +1,12 @@
 export function createCarousel(containerSelector, options = {}) {
     const {
         sliderSelector = '.hero-slider',
-        slideSelector = 'img',
-        prevBtnSelector = null,
-        nextBtnSelector = null,
-        autoplayInterval = 3000,
-        transitionDuration = 0.5,
+        slideSelector = '.hero-slide',
+        prevBtnSelector = '.hero-btn--prev',
+        nextBtnSelector = '.hero-btn--next',
+        dotsContainerId = 'hero-dots',
+        autoplayInterval = 5000,
+        transitionDuration = 0.65,
         pauseOnHover = true
     } = options;
 
@@ -17,7 +18,7 @@ export function createCarousel(containerSelector, options = {}) {
 
     const slider = container.querySelector(sliderSelector);
     if (!slider) {
-        console.warn(`Slider "${sliderSelector}" no encontrado dentro del contenedor.`);
+        console.warn(`Slider "${sliderSelector}" no encontrado.`);
         return null;
     }
 
@@ -31,25 +32,50 @@ export function createCarousel(containerSelector, options = {}) {
     let autoplayTimer = null;
     const totalSlides = slides.length;
 
-    // Calcula el ancho actual de una diapositiva (útil para responsive)
+    // ── Dots ──
+    const dotsContainer = document.getElementById(dotsContainerId);
+    let dots = [];
+
+    if (dotsContainer) {
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Ir a la serie ${i + 1}`);
+            dot.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(i);
+                startAutoplay();
+            });
+            dotsContainer.appendChild(dot);
+            dots.push(dot);
+        }
+    }
+
+    const updateDots = (index) => {
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    };
+
+    // ── Ancho de cada slide ──
     const getSlideWidth = () => slides[0].offsetWidth;
 
-    // Función para mover el slider a un índice específico
+    // ── Ir a un slide ──
     const goToSlide = (index, animate = true) => {
         if (index < 0) index = totalSlides - 1;
         if (index >= totalSlides) index = 0;
 
         const width = getSlideWidth();
-        slider.style.transition = animate ? `transform ${transitionDuration}s ease` : 'none';
+        slider.style.transition = animate
+            ? `transform ${transitionDuration}s cubic-bezier(0.4, 0, 0.2, 1)`
+            : 'none';
         slider.style.transform = `translateX(-${index * width}px)`;
         currentIndex = index;
+        updateDots(currentIndex);
     };
 
-    // Funciones de navegación
     const next = () => goToSlide(currentIndex + 1);
     const prev = () => goToSlide(currentIndex - 1);
 
-    // Control de autoplay
+    // ── Autoplay ──
     const startAutoplay = () => {
         if (autoplayInterval > 0) {
             stopAutoplay();
@@ -64,59 +90,51 @@ export function createCarousel(containerSelector, options = {}) {
         }
     };
 
-    // Configurar botones si se proporcionan
-    if (prevBtnSelector) {
-        const prevBtn = container.querySelector(prevBtnSelector);
-        if (prevBtn) {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                stopAutoplay();
-                prev();
-                startAutoplay();
-            });
-        }
+    // ── Botones de navegación ──
+    const prevBtn = container.querySelector(prevBtnSelector);
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            stopAutoplay();
+            prev();
+            startAutoplay();
+        });
     }
 
-    if (nextBtnSelector) {
-        const nextBtn = container.querySelector(nextBtnSelector);
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                stopAutoplay();
-                next();
-                startAutoplay();
-            });
-        }
+    const nextBtn = container.querySelector(nextBtnSelector);
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            stopAutoplay();
+            next();
+            startAutoplay();
+        });
     }
 
-    // Pausar al hacer hover (opcional)
+    // ── Pausar al pasar el cursor ──
     if (pauseOnHover) {
         container.addEventListener('mouseenter', stopAutoplay);
         container.addEventListener('mouseleave', startAutoplay);
     }
 
-    // Ajustar al redimensionar la ventana
-    const handleResize = () => goToSlide(currentIndex, false);
-    window.addEventListener('resize', handleResize);
-
-    // Iniciar autoplay
-    startAutoplay();
-
-    // Retornar una API para control externo (opcional)
-    return {
-        next,
-        prev,
-        goToSlide,
-        startAutoplay,
-        stopAutoplay,
-        destroy: () => {
+    // ── Swipe táctil ──
+    let touchStartX = 0;
+    container.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    container.addEventListener('touchend', (e) => {
+        const delta = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(delta) > 40) {
             stopAutoplay();
-            window.removeEventListener('resize', handleResize);
-            if (pauseOnHover) {
-                container.removeEventListener('mouseenter', stopAutoplay);
-                container.removeEventListener('mouseleave', startAutoplay);
-            }
-            // Aquí podrías eliminar otros eventos si es necesario
+            delta > 0 ? next() : prev();
+            startAutoplay();
         }
-    };
+    }, { passive: true });
+
+    // ── Ajustar al redimensionar ──
+    window.addEventListener('resize', () => goToSlide(currentIndex, false));
+
+    // ── Iniciar ──
+    startAutoplay();
+    return { goToSlide, next, prev, stop: stopAutoplay, start: startAutoplay };
 }
